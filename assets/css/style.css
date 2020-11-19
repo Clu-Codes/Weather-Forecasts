@@ -1,0 +1,24 @@
+main {
+    margin-top: 25px;
+}
+.search-cards {
+    margin-left: 5px;
+}
+#search-results {
+    margin-top: 1px;
+}
+.city-weather-info {
+    margin-right: 20px;
+}
+.city-data {
+    margin: 12px
+}
+.forecast-heading {
+    margin-top: 15px;
+}
+.forecast-card {
+    margin-right: 25px;
+}
+.forecast-body-color {
+    background-color: lightslategray;
+}
