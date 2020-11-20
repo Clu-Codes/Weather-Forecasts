@@ -1,3 +1,5 @@
+var cityName = [];
+
 inputEl = document.querySelector("#city-finder");
 formEl = document.querySelector("form");
 
@@ -12,14 +14,24 @@ var getCity = function(event) {
 
 
 var getForecast = function(city) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + ;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "";
 
     fetch(apiUrl)
     .then(function(response) {
         if (response.ok) {
+            cityName.push(city);
+            console.log(cityName);
             response.json().then(function(data) {
-                console.log("test 1", data.list[0].main.temp);
-                displayCityWeather(data);
+                var oneDayApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "";
+                fetch (oneDayApiUrl)
+                .then(function(response) {
+                    if (response.ok) {
+                        response.json().then(function(data) {
+                            console.log(data);
+                            displayCityWeather(data);
+                        })
+                    }
+                })
             });
         } else {
             console.log("Opps! That didn't work.")
@@ -29,24 +41,27 @@ var getForecast = function(city) {
 
 var displayCityWeather = function(data) {
     cityTitleEl = document.querySelector("#city-date");
-    cityTitleEl.textContent = city + " " + "(" + moment(new Date()).format("MM/DD/YYYY") + ")";
+    cityTitleEl.textContent = cityName[0] + " " + "(" + moment(new Date()).format("MM/DD/YYYY") + ")";
     temperatureEl = document.querySelector("#temperature");
-    console.log(data.list[0].main.temp);
-    temperatureEl.textContent = "Temperature:" + data[0].temp;
+    // console.log(data.list[0].main.temp);
+    temperatureEl.textContent = "Temperature:" + " " + data.current.temp;
+    console.log(temperatureEl);
 
-    // console.log(cityTitleEl);
+    humidityEl = document.querySelector("#humidity");
+    humidityEl.textContent = "Humidity:" + " " + data.current.humidity;
+    console.log(humidityEl);
+
+    windSpeedEl = document.querySelector("#wind-speed");
+    windSpeedEl.textContent = "wind:" + " " + data.current.wind_speed;
+    console.log(windSpeedEl);
+
+    uvIndexEl = document.querySelector("#uv-index");
+    uvIndexEl.textContent = "UV-Index" + " " + data.current.uvi;
+    console.log(uvIndexEl);
+
 }
 
 
 
 
 formEl.addEventListener("submit", getCity);
-
-
-// I am not sure how I can check to see if the city exist, since I am required to include the city's name in my API call.
-// if (city) { 
-//     getForecast(city);
-//     $("#city-find").value = "";
-// } else {
-//     alert("")
-// }
