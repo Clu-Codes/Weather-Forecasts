@@ -31,12 +31,12 @@
             </div>
             <!-- Saved results from search -->
             <div class="card search-cards" id="search-results">
-                <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
+                <ul id="search-history" class="list-group">
+                    <!-- <li class="list-group-item">Cras justo odio</li>
                     <li class="list-group-item">Dapibus ac facilisis in</li>
                     <li class="list-group-item">Morbi leo risus</li>
                     <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">Vestibulum at eros</li> -->
                 </ul>    
             </div>
         </div>
@@ -44,48 +44,48 @@
         <div class="col-8">
             <div class="city-weather-info card">
                 <div class="card-body">
-                    <h3 id="city-date">Test, Test, Test</h3>
-                    <p class="city-data" id="temperature">Test, Test, Test</p>
-                    <p class="city-data" id="humidity">Test, Test, Test</p>
-                    <p class="city-data" id="wind-speed">Test, Test, Test</p>
-                    <p class="city-data" id="uv-index">Test, Test, Test</p>
+                    <h3 id="city-date">For Your Current Forecast, Search For Your City</h3>
+                    <p class="city-data" id="temperature">Temperature:</p>
+                    <p class="city-data" id="humidity">Humidity:</p>
+                    <p class="city-data" id="wind-speed">Wind-Speed:</p>
+                    <p class="city-data" id="uv-index">UV-Index:</p>
                 </div>
             </div>
             <h3 class="forecast-heading">5-Day Forecast:</h3>
             <div class="row justify-content-around">
                 <div class="forecast-card card text-white mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-primary text-center">8/16/2021</div>
+                    <div id="first-day-header" class="card-header bg-primary text-center">8/16/2021</div>
                     <div class="card-body forecast-body-color">
-                      <p class="card-temp">26C</p>
-                      <p class="card-humidity">Humidity: 93%</p>
+                      <p id="first-day-temp" class="card-temp">26C</p>
+                      <p id="first-day-humid" class="card-humidity">Humidity: 93%</p>
                     </div>
                 </div>
                 <div class="forecast-card card text-white mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-primary text-center">8/16/2021</div>
+                    <div id="second-day-header" class="card-header bg-primary text-center">8/16/2021</div>
                     <div class="card-body forecast-body-color">
-                      <p class="card-temp">26C</p>
-                      <p class="card-humidity">Humidity: 93%</p>
+                      <p id="second-day-temp" class="card-temp">26C</p>
+                      <p id="second-day-humid" class="card-humidity">Humidity: 93%</p>
                     </div>
                 </div>
                 <div class="forecast-card card text-white mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-primary text-center">8/16/2021</div>
+                    <div id="third-day-header" class="card-header bg-primary text-center">8/16/2021</div>
                     <div class="card-body forecast-body-color">
-                      <p class="card-temp">26C</p>
-                      <p class="card-humidity">Humidity: 93%</p>
+                      <p id="third-day-temp" class="card-temp">26C</p>
+                      <p id="third-day-humid" class="card-humidity">Humidity: 93%</p>
                     </div>
                 </div>
                 <div class="forecast-card card text-white mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-primary text-center">8/16/2021</div>
+                    <div id="fourth-day-header" class="card-header bg-primary text-center">8/16/2021</div>
                     <div class="card-body forecast-body-color">
-                      <p class="card-temp">26C</p>
-                      <p class="card-humidity">Humidity: 93%</p>
+                      <p id="fourth-day-temp" class="card-temp">26C</p>
+                      <p id="fourth-day-humid" class="card-humidity">Humidity: 93%</p>
                     </div>
                 </div>
                 <div class="forecast-card card text-white mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-primary text-center">8/16/2021</div>
+                    <div id="fifth-day-header" class="card-header bg-primary text-center">8/16/2021</div>
                     <div class="card-body forecast-body-color">
-                      <p class="card-temp">26C</p>
-                      <p class="card-humidity">Humidity: 93%</p>
+                      <p id="fifth-day-temp" class="card-temp">26C</p>
+                      <p id="fifth-day-humid" class="card-humidity">Humidity: 93%</p>
                     </div>
                 </div>
             </div>
