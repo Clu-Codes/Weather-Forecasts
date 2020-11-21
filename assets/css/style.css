@@ -22,3 +22,9 @@ main {
 .forecast-body-color {
     background-color: lightslategray;
 }
+li {
+    cursor: pointer;
+}
+li:hover {
+    background-color: lightblue;
+}
