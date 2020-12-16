@@ -10,7 +10,7 @@ var saveCities = function(city) {
     } else if (localStorage.getItem("localStorageCity").indexOf(city) === -1) {
         localStorage.setItem("localStorageCity", JSON.stringify(cityName));
     } else {
-        localStorage.removeItem()
+        localStorage.removeItem(city);
     }
 };
 
@@ -34,18 +34,20 @@ var loadCities = function () {
 
     var searchHistoryEl = document.getElementById("search-history");
     searchHistoryEl.innerHTML = "";
-    revCityName.forEach((city, index) => {
-        if (index < 10) {
-            cityLineEl = document.createElement("li");
-            cityLineEl.className = "list-group-item";
-            cityLineEl.textContent = city;
-            searchHistoryEl.appendChild(cityLineEl);
-        }
-    });
+    if (revCityName !== undefined) {
+        revCityName.forEach((city, index) => {
+            if (index < 10) {
+                cityLineEl = document.createElement("li");
+                cityLineEl.className = "list-group-item";
+                cityLineEl.textContent = city;
+                searchHistoryEl.appendChild(cityLineEl);
+            }
+        });
+    }
 };
 
 var getForecast = function(city) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=a5c8eaf41b6447c14bbbf7a5f208c52d";
 
     fetch(apiUrl)
     .then(function(response) {
@@ -59,7 +61,7 @@ var getForecast = function(city) {
             loadCities();
 
             response.json().then(function(data) {
-                var oneDayApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "";
+                var oneDayApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "&exclude=hourly,minutely,alerts&units=imperial&appid=a5c8eaf41b6447c14bbbf7a5f208c52d";
                 fetch (oneDayApiUrl)
                 .then(function(response) {
                     if (response.ok) {
